@@ -20,10 +20,28 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-const playerSelection = "paPER";
-const computerSelection = computerPlay();
-console.log(playRound(playerSelection, computerSelection));
-console.log(playerSelection);
-console.log(computerSelection);
+function game() {
+    let playerScore = 0;
+    let computerScore = 0;
+    for (let i = 0; i < 5; i++) {
+        let playerSelection = prompt('Choose Rock, Paper or Scissors:');
+        let computerSelection = computerPlay();
+        whoWon = playRound(playerSelection, computerSelection);
+        console.log(whoWon);
+        if (whoWon.charAt(4) == 'W') {
+            playerScore++;
+        } else if (whoWon.charAt(4) == 'L') {
+            computerScore++;
+        };
+    }
+    if (playerScore > computerScore) {
+        console.log('Congratulations! You won the 5 rounds!');
+    } else if (playerScore < computerScore) {
+        console.log('Oh no! You just lost 5 rounds!');
+    } else {
+        console.log("It's a 5 rounds tie!");
+    }
+}
 
+game();
 
